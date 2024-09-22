@@ -1,0 +1,37 @@
+.remorser {
+  /*  position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%; */
+  /* transform: translate(-50%, -70%); */
+  overflow: hidden;
+  max-width: 700px;
+  min-width: 700px;
+  /* filter: blur(40px); */
+}
+
+.remorse-container {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  position: absolute;
+  z-index: 2;
+
+  /*   &::after {
+    content: url('../media/img/remorser dithered.png');
+    position: absolute;
+    outline: 1px solid red;
+    filter: blur(30px);
+    mix-blend-mode: luminosity;
+  } */
+}
+
+@media (max-width: 600px) {
+  .remorser {
+    max-width: 300px;
+    min-width: 300px;
+  }
+}

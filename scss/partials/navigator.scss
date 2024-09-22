@@ -1,0 +1,23 @@
+.navigator {
+  ul {
+    margin-top: 360px;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 600px) {
+  .navigator {
+    margin-top: 150px;
+
+    ul {
+      flex-direction: column;
+      margin-top: 20px;
+      justify-content: center;
+
+      li {
+        margin-top: 10px;
+      }
+    }
+  }
+}

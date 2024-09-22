@@ -1,0 +1,17 @@
+{
+  "name": "sharper-fangs",
+  "version": "1.0.0",
+  "description": "mocksite for a new album",
+  "main": "js/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass --watch scss/styles.scss css/styles.css"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^9.7.0",
+    "live-server": "^1.2.2",
+    "sass": "^1.78.0"
+  }
+}

@@ -1,0 +1,258 @@
+@font-face {
+  font-family: "Bloodletter Regular";
+  src: url("../fonts/Bloodletter-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Carta Marina";
+  src: url("../fonts/674.woff2") format("truetype");
+}
+html {
+  margin: 0;
+  padding: 0;
+  /* height: 100%; */
+  cursor: url("../media/img/vieeye.png"), auto;
+  height: 100lvh;
+  width: 100lvw;
+  overflow: hidden;
+  background-color: #323232;
+  background-image: url("../media/img/bg dithered.jpg");
+  background-position: center;
+  background-repeat: repeat;
+}
+
+ul,
+li,
+a {
+  all: unset;
+}
+
+.merger {
+  object-fit: fill;
+  max-width: 200px;
+  display: none; /* Hide the merger by default */
+}
+
+.content {
+  font-family: "Carta Marina";
+  color: white;
+  margin: 200px;
+  z-index: 10;
+  overflow: auto; /* Enables scrolling when content overflows */
+  max-height: 100vh; /* Restrict height to viewport height */
+  padding-right: 20px; /* Adds some padding for better scroll visibility */
+}
+.content__paragraph {
+  font-family: "Carta Marina";
+  font-size: 18px;
+  max-width: 1000px;
+  text-align: center;
+  margin: 0 auto; /* Ensure the paragraph centers horizontally */
+  margin-top: 40px;
+}
+
+@media (max-width: 600px) {
+  .content {
+    font-family: "Carta Marina";
+    color: white;
+    margin: 0;
+    padding: 20px;
+    z-index: 10;
+    overflow: auto; /* Ensure scrolling on smaller screens */
+    max-height: 80vh; /* Restrict height to viewport height */
+  }
+  .content__paragraph {
+    font-family: "Carta Marina";
+    font-size: 18px;
+  }
+}
+.borders {
+  /* border: 20px solid red; */
+}
+.borders__horizontal--top {
+  background-image: url("../media/img/horizontal bevel.png");
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 12px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.borders__horizontal--bottom {
+  background-image: url("../media/img/horizontal bevel.png");
+  transform: rotate(180deg);
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 12px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.borders__vertical--left {
+  position: absolute;
+  background-image: url("../media/img/left bevel.png");
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 12px;
+}
+.borders__vertical--right {
+  position: absolute;
+  background-image: url("../media/img/right bevel.png");
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 34px;
+}
+.borders__corners div {
+  background-image: url("../media/img/corner bevel.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  z-index: 2;
+  width: 80px;
+  height: 80px;
+}
+.borders__corners--top-left {
+  transform: rotate(90deg);
+  top: 0;
+  left: 0;
+}
+.borders__corners--top-right {
+  transform: rotate(180deg);
+  top: 0;
+  right: 0;
+}
+.borders__corners--bottom-right {
+  transform: rotate(-90deg);
+  bottom: 0;
+  right: 0;
+}
+.borders__corners--bottom-left {
+  bottom: 0;
+  left: 0;
+}
+
+.remorser {
+  /*  position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%; */
+  /* transform: translate(-50%, -70%); */
+  overflow: hidden;
+  max-width: 700px;
+  min-width: 700px;
+  /* filter: blur(40px); */
+}
+
+.remorse-container {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  position: absolute;
+  z-index: 2;
+  /*   &::after {
+    content: url('../media/img/remorser dithered.png');
+    position: absolute;
+    outline: 1px solid red;
+    filter: blur(30px);
+    mix-blend-mode: luminosity;
+  } */
+}
+
+@media (max-width: 600px) {
+  .remorser {
+    max-width: 300px;
+    min-width: 300px;
+  }
+}
+@keyframes shake {
+  0% {
+    transform: translate(1px, 1px);
+  }
+  100% {
+    transform: translate(1px, -2px);
+  }
+}
+@keyframes glide {
+  0% {
+    transform: translate(1px, 1px);
+  }
+  100% {
+    transform: translate(1px, 1px);
+  }
+}
+.fx {
+  position: absolute;
+}
+
+.fx-container {
+  user-select: none;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  pointer-events: none;
+}
+
+.fx-nodes {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  animation: shake 0.05s infinite; /* Apply shake animation */
+  user-select: none;
+}
+
+@media (max-width: 600px) {
+  .fx-nodes {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+  }
+}
+.navigator ul {
+  margin-top: 360px;
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 600px) {
+  .navigator {
+    margin-top: 150px;
+  }
+  .navigator ul {
+    flex-direction: column;
+    margin-top: 20px;
+    justify-content: center;
+  }
+  .navigator ul li {
+    margin-top: 10px;
+  }
+}
+@keyframes fade-out {
+  0% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 0%;
+  }
+}
+.launch {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #000;
+  z-index: 10005;
+  text-align: center;
+  transition: opacity 1s;
+}
+.launch--hide {
+  animation: fade-out 0.5s ease-in;
+}
+
+/*# sourceMappingURL=styles.css.map */

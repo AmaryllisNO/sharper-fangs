@@ -1,0 +1,227 @@
+@font-face {
+  font-family: "Bloodletter Regular";
+  src: url("../fonts/Bloodletter-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Carta Marina";
+  src: url("../fonts/674.woff2") format("truetype");
+}
+body,
+html {
+  margin: 0;
+  padding: 0;
+  /* height: 100%; */
+  cursor: url("../media/img/vieeye.png"), auto;
+  height: 100lvh;
+  width: 100lvw;
+  overflow: hidden;
+  background-color: #323232;
+  background-image: url("../media/img/bg dithered.jpg");
+  background-position: center;
+  background-repeat: repeat;
+}
+
+li,
+a {
+  all: unset;
+}
+
+.borders {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 2;
+  /* border: 20px solid red; */
+}
+.borders__horizontal--top {
+  background-image: url("../media/img/horizontal bevel.png");
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 12px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.borders__horizontal--bottom {
+  background-image: url("../media/img/horizontal bevel.png");
+  transform: rotate(180deg);
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 12px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.borders__vertical--left {
+  position: absolute;
+  background-image: url("../media/img/left bevel.png");
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 12px;
+}
+.borders__vertical--right {
+  position: absolute;
+  background-image: url("../media/img/right bevel.png");
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 34px;
+}
+.borders__corners div {
+  background-image: url("../media/img/corner bevel.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  z-index: 2;
+  width: 80px;
+  height: 80px;
+}
+.borders__corners--top-left {
+  transform: rotate(90deg);
+  top: 0;
+  left: 0;
+}
+.borders__corners--top-right {
+  transform: rotate(180deg);
+  top: 0;
+  right: 0;
+}
+.borders__corners--bottom-right {
+  transform: rotate(-90deg);
+  bottom: 0;
+  right: 0;
+}
+.borders__corners--bottom-left {
+  bottom: 0;
+  left: 0;
+}
+
+.remorser {
+  /*  position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%; */
+  /* transform: translate(-50%, -70%); */
+  overflow: hidden;
+  max-width: 700px;
+  min-width: 700px;
+  /* filter: blur(40px); */
+}
+
+.remorse-container {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  position: absolute;
+  z-index: 1;
+  /*   &::after {
+    content: url('../media/img/remorser dithered.png');
+    position: absolute;
+    outline: 1px solid red;
+    filter: blur(30px);
+    mix-blend-mode: luminosity;
+  } */
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(1px, 1px);
+  }
+  100% {
+    transform: translate(1px, -2px);
+  }
+}
+@keyframes glide {
+  0% {
+    transform: translate(1px, 1px);
+  }
+  100% {
+    transform: translate(1px, 1px);
+  }
+}
+.fx {
+  position: absolute;
+}
+
+.fx-container {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  z-index: 1;
+  top: 0;
+}
+
+.fx-nodes {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  animation: shake 0.05s infinite; /* Apply shake animation */
+}
+
+.navigator ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 0%;
+  }
+}
+.launch {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #000;
+  z-index: 10005;
+  text-align: center;
+  transition: opacity 1s;
+}
+.launch--hide {
+  animation: fade-out 0.5s ease-in;
+}
+
+.bg {
+  /* image-rendering: crisp-edges; */
+  /* position: absolute;
+  top: 0;
+  left: 0; */
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  z-index: 0;
+}
+
+.merger {
+  -o-object-fit: fill;
+     object-fit: fill;
+  max-width: 200px;
+  display: none; /* Hide the merger by default */
+}
+
+.content {
+  font-family: "Carta Marina";
+  color: white;
+  margin: 200px;
+  z-index: 10;
+}
+
+@media (max-width: 600px) {
+  .bg {
+    /* object-fit: scale-down; */
+    -o-object-position: 50% 50%;
+       object-position: 50% 50%;
+  }
+}/*# sourceMappingURL=styles.css.map */
