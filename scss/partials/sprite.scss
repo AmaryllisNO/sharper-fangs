@@ -1,0 +1,22 @@
+@keyframes tremble {
+  0% {
+    transform: translate(-50%, -50%) scale(1.03);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1.01);
+  }
+}
+
+.sprite {
+  width: 200px;
+  height: 200px;
+  background-image: url('/media/img/sprites.png');
+  background-size: 1000px 1000px; /* Size of the entire sprite sheet */
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%); /* Centers the sprite */
+  //   transition: 0.02s;
+  animation: tremble 0.02s infinite;
+}

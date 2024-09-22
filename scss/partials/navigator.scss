@@ -3,6 +3,14 @@
     margin-top: 360px;
     display: flex;
     justify-content: space-between;
+    li {
+      &:hover {
+        cursor: url('/media/img/cursor-open-55.png'), pointer;
+        transform: 2s;
+        // border: solid 1px red;
+        filter: blur(3px) brightness(120);
+      }
+    }
   }
 }
 

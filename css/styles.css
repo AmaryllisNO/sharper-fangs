@@ -10,7 +10,7 @@ html {
   margin: 0;
   padding: 0;
   /* height: 100%; */
-  cursor: url("../media/img/vieeye.png"), auto;
+  cursor: url("../media/img/cursor-55.png"), auto;
   height: 100lvh;
   width: 100lvw;
   overflow: hidden;
@@ -132,6 +132,26 @@ a {
   left: 0;
 }
 
+@keyframes tremble {
+  0% {
+    transform: translate(-50%, -50%) scale(1.03);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.01);
+  }
+}
+.sprite {
+  width: 200px;
+  height: 200px;
+  background-image: url("/media/img/sprites.png");
+  background-size: 1000px 1000px; /* Size of the entire sprite sheet */
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%); /* Centers the sprite */
+  animation: tremble 0.02s infinite;
+}
+
 .remorser {
   /*  position: absolute;
     z-index: 1;
@@ -217,6 +237,11 @@ a {
   margin-top: 360px;
   display: flex;
   justify-content: space-between;
+}
+.navigator ul li:hover {
+  cursor: url("/media/img/cursor-open-55.png"), pointer;
+  transform: 2s;
+  filter: blur(3px) brightness(120);
 }
 
 @media (max-width: 600px) {

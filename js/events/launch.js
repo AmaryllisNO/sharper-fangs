@@ -1,5 +1,5 @@
 const launch = document.getElementById('launch');
-let bgMusic = new Audio('./media/sounds/just bloodborne.mp3');
+let bgMusic = new Audio('/media/sounds/just bloodborne.mp3');
 bgMusic.loop = true;
 
 launch.addEventListener('click', () => {
