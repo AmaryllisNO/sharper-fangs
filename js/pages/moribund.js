@@ -11,7 +11,7 @@ const foundSfx = new Audio('/media/sounds/01-UI-womp.mp3');
 function updateSpritePosition(x, y) {
   const sprite = document.getElementById('sprite');
   if (!sprite) return;
-  sprite.style.filter = 'brightness(1.5) ';
+  sprite.style.filter = 'brightness(1.2)';
 
   const vw = window.innerWidth;
   const vh = window.innerHeight;
@@ -19,13 +19,14 @@ function updateSpritePosition(x, y) {
   const mouseX = x / vw;
   const mouseY = y / vh;
 
-  const currentFrameX = Math.floor(mouseX * 5);
-  const currentFrameY = Math.floor(mouseY * 5);
+  const currentFrameX = Math.floor(mouseX * 9);
+  const currentFrameY = Math.floor(mouseY * 9);
+  console.log(currentFrameX, currentFrameY);
 
   // Check if the frame has changed
   if (currentFrameX !== lastFrameX || currentFrameY !== lastFrameY) {
     const newMoveSfx = moveSfx.cloneNode(); // Clone the sound effect
-    if (currentFrameX === 3 && currentFrameY === 3) {
+    if (currentFrameX === 6 && currentFrameY === 6) {
       sigilSfx.play();
     } else {
       newMoveSfx.play(); // Play the cloned sound
@@ -35,12 +36,12 @@ function updateSpritePosition(x, y) {
     // newMoveSfx.volume = 0.5;
   }
 
-  sprite.style.backgroundPosition = `${currentFrameX * -400}px ${
-    currentFrameY * -400
+  sprite.style.backgroundPosition = `${currentFrameX * -200}px ${
+    currentFrameY * -200
   }px`;
 
   // Check if hovering over the special frame (3, 3)
-  if (currentFrameX === 3 && currentFrameY === 3) {
+  if (currentFrameX === 6 && currentFrameY === 6) {
     if (!alertTimeout) {
       alertTimeout = setTimeout(() => {
         foundSfx.play();

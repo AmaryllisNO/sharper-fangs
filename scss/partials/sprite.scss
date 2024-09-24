@@ -11,8 +11,9 @@
 .sprite {
   width: 400px;
   height: 400px;
-  background-image: url('/media/img/spritesheet upscaled.png');
+  background-image: url('/media/img/spritesheet bevel.png');
   background-size: 2000px 2000px; /* Size of the entire sprite sheet */
+  background-repeat: no-repeat;
   position: absolute;
   left: 50%;
   top: 50%;
