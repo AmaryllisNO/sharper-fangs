@@ -1,0 +1,23 @@
+name: Deploy to One.com
+
+on:
+  push:
+    branches:
+      - main  # Change to your default branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout the repository
+      uses: actions/checkout@v2
+
+    - name: Upload to FTP
+      uses: SamKirkland/FTP-Deploy-Action@4.3.0
+      with:
+        ftp-server: sftp://ssh.null00.no  # Replace with your One.com FTP server
+        ftp-username: ${{ secrets.FTP_USERNAME }}
+        ftp-password: ${{ secrets.FTP_PASSWORD }}
+        local-dir: ./  # Directory to upload (use './' for the root of the repo)
+        server-dir: /customers/2/c/5/null00.no/httpd.www/sharper-fangs/  # Target directory on the One.com server
