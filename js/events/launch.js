@@ -12,6 +12,7 @@ let bgMusic;
 if (currentPage && currentPage.music) {
   // Initialize the audio if music exists for this page
   bgMusic = new Audio(currentPage.music);
+  bgMusic.volume = 0.7;
 }
 
 launch.addEventListener('click', () => {
