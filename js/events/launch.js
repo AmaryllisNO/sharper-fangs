@@ -1,11 +1,34 @@
+import { pages } from '../variables/pages.js';
+
 const launch = document.getElementById('launch');
-let bgMusic = new Audio('/media/sounds/just bloodborne.mp3');
-bgMusic.loop = true;
+const filteredURL = window.location.pathname;
+export let hasLaunched = false;
+
+// Find the page with matching pathname
+const currentPage = pages.find((page) => page.pathname === filteredURL);
+
+let bgMusic;
+
+if (currentPage && currentPage.music) {
+  // Initialize the audio if music exists for this page
+  bgMusic = new Audio(currentPage.music);
+}
 
 launch.addEventListener('click', () => {
+  // hide and remove cover
   launch.classList.add('launch--hide');
-  setTimeout(function () {
+  setTimeout(() => {
     document.body.removeChild(launch);
   }, 500);
-  bgMusic.play();
+
+  // play bgMusic
+  if (bgMusic) {
+    bgMusic.play();
+    bgMusic.loop = true;
+  } else {
+    console.log('No music for this page.');
+  }
+
+  // set hasLaunched to true
+  hasLaunched = true;
 });

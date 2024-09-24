@@ -6,12 +6,11 @@
   font-family: "Carta Marina";
   src: url("../fonts/674.woff2") format("truetype");
 }
-body,
 html {
   margin: 0;
   padding: 0;
   /* height: 100%; */
-  cursor: url("../media/img/vieeye.png"), auto;
+  cursor: url("../media/img/cursor-55.png"), auto;
   height: 100lvh;
   width: 100lvw;
   overflow: hidden;
@@ -21,18 +20,53 @@ html {
   background-repeat: repeat;
 }
 
+ul,
 li,
 a {
   all: unset;
 }
 
+.merger {
+  -o-object-fit: fill;
+     object-fit: fill;
+  max-width: 200px;
+  display: none; /* Hide the merger by default */
+}
+
+.content {
+  font-family: "Carta Marina";
+  color: white;
+  margin: 200px;
+  z-index: 10;
+  overflow: auto; /* Enables scrolling when content overflows */
+  max-height: 100vh; /* Restrict height to viewport height */
+  padding-right: 20px; /* Adds some padding for better scroll visibility */
+}
+.content__paragraph {
+  font-family: "Carta Marina";
+  font-size: 18px;
+  max-width: 1000px;
+  text-align: center;
+  margin: 0 auto; /* Ensure the paragraph centers horizontally */
+  margin-top: 40px;
+}
+
+@media (max-width: 600px) {
+  .content {
+    font-family: "Carta Marina";
+    color: white;
+    margin: 0;
+    padding: 20px;
+    z-index: 10;
+    overflow: auto; /* Ensure scrolling on smaller screens */
+    max-height: 80vh; /* Restrict height to viewport height */
+  }
+  .content__paragraph {
+    font-family: "Carta Marina";
+    font-size: 18px;
+  }
+}
 .borders {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 100vw;
-  z-index: 2;
   /* border: 20px solid red; */
 }
 .borders__horizontal--top {
@@ -99,6 +133,26 @@ a {
   left: 0;
 }
 
+@keyframes tremble {
+  0% {
+    transform: translate(-50%, -50%) scale(1.03);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.01);
+  }
+}
+.sprite {
+  width: 200px;
+  height: 200px;
+  background-image: url("/media/img/spritesheet-upscale.png");
+  background-size: 1000px 1000px; /* Size of the entire sprite sheet */
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%); /* Centers the sprite */
+  animation: tremble 0.02s infinite;
+}
+
 .remorser {
   /*  position: absolute;
     z-index: 1;
@@ -119,7 +173,7 @@ a {
   left: 50%;
   transform: translate(-50%, 0%);
   position: absolute;
-  z-index: 1;
+  z-index: 2;
   /*   &::after {
     content: url('../media/img/remorser dithered.png');
     position: absolute;
@@ -129,6 +183,12 @@ a {
   } */
 }
 
+@media (max-width: 600px) {
+  .remorser {
+    max-width: 300px;
+    min-width: 300px;
+  }
+}
 @keyframes shake {
   0% {
     transform: translate(1px, 1px);
@@ -150,25 +210,58 @@ a {
 }
 
 .fx-container {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   width: 100vw;
   height: 100vh;
-  position: relative;
+  position: fixed;
   z-index: 1;
   top: 0;
+  pointer-events: none;
 }
 
 .fx-nodes {
   position: absolute;
-  width: 500px;
-  height: 500px;
+  width: 400px;
+  height: 400px;
   animation: shake 0.05s infinite; /* Apply shake animation */
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 
+@media (max-width: 600px) {
+  .fx-nodes {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+  }
+}
 .navigator ul {
+  margin-top: 360px;
   display: flex;
   justify-content: space-between;
 }
+.navigator ul li:hover {
+  cursor: url("/media/img/cursor-open-55.png"), pointer;
+  transform: 2s;
+  filter: blur(3px) brightness(120);
+}
 
+@media (max-width: 600px) {
+  .navigator {
+    margin-top: 150px;
+  }
+  .navigator ul {
+    flex-direction: column;
+    margin-top: 20px;
+    justify-content: center;
+  }
+  .navigator ul li {
+    margin-top: 10px;
+  }
+}
 @keyframes fade-out {
   0% {
     opacity: 100%;
@@ -190,38 +283,4 @@ a {
 }
 .launch--hide {
   animation: fade-out 0.5s ease-in;
-}
-
-.bg {
-  /* image-rendering: crisp-edges; */
-  /* position: absolute;
-  top: 0;
-  left: 0; */
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  z-index: 0;
-}
-
-.merger {
-  -o-object-fit: fill;
-     object-fit: fill;
-  max-width: 200px;
-  display: none; /* Hide the merger by default */
-}
-
-.content {
-  font-family: "Carta Marina";
-  color: white;
-  margin: 200px;
-  z-index: 10;
-}
-
-@media (max-width: 600px) {
-  .bg {
-    /* object-fit: scale-down; */
-    -o-object-position: 50% 50%;
-       object-position: 50% 50%;
-  }
 }/*# sourceMappingURL=styles.css.map */

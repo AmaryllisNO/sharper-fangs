@@ -1,0 +1,40 @@
+.merger {
+  -o-object-fit: fill;
+     object-fit: fill;
+  max-width: 200px;
+  display: none; /* Hide the merger by default */
+}
+
+.content {
+  font-family: "Carta Marina";
+  color: white;
+  margin: 200px;
+  z-index: 10;
+  overflow: auto; /* Enables scrolling when content overflows */
+  max-height: 100vh; /* Restrict height to viewport height */
+  padding-right: 20px; /* Adds some padding for better scroll visibility */
+}
+.content__paragraph {
+  font-family: "Carta Marina";
+  font-size: 18px;
+  max-width: 1000px;
+  text-align: center;
+  margin: 0 auto; /* Ensure the paragraph centers horizontally */
+  margin-top: 40px;
+}
+
+@media (max-width: 600px) {
+  .content {
+    font-family: "Carta Marina";
+    color: white;
+    margin: 0;
+    padding: 20px;
+    z-index: 10;
+    overflow: auto; /* Ensure scrolling on smaller screens */
+    max-height: 80vh; /* Restrict height to viewport height */
+  }
+  .content__paragraph {
+    font-family: "Carta Marina";
+    font-size: 18px;
+  }
+}/*# sourceMappingURL=index.css.map */

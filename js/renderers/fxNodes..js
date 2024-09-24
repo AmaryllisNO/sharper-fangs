@@ -31,7 +31,7 @@ randomArray.forEach(() => {
   const glide = () => {
     randomLeft = Math.random() * (containerWidth - img.offsetWidth);
     randomTop = Math.random() * (containerHeight - img.offsetHeight);
-    console.log(`${randomLeft} ${randomTop} `);
+    // console.log(`${randomLeft} ${randomTop} `);
 
     img.style.transition = 'all 15s ease-in-out'; // Smooth transition for the glide
     img.style.left = `${randomLeft}px`;

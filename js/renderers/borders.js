@@ -11,8 +11,6 @@ const borderClasses = [
   'borders__corners--bottom-left',
 ];
 
-console.log('borders renderer');
-
 borderClasses.forEach((className) => {
   const div = document.createElement('div');
 

@@ -1,71 +1,61 @@
 import '../events/launch.js';
 
-let currentFrameX = 0;
-let currentFrameY = 0;
-let isSpecialFrame = false; // To track if we're hovering over the special frame
+let alertTimeout = null; // To store the timeout ID
+let lastFrameX = null; // To store the last X frame
+let lastFrameY = null; // To store the last Y frame
+const moveSfx = new Audio('/media/sounds/HNS1 Zap 02.wav');
 
 // Function to update the sprite position
 function updateSpritePosition(x, y) {
   const sprite = document.getElementById('sprite');
-
-  // Ensure the sprite element exists
   if (!sprite) return;
+  sprite.style.filter = 'brightness(1.5) ';
 
-  // Get the viewport width and height
   const vw = window.innerWidth;
   const vh = window.innerHeight;
 
-  // Get the cursor/touch position as a percentage of the screen
   const mouseX = x / vw;
   const mouseY = y / vh;
 
-  // Calculate the frame based on position (5x5 grid)
-  const totalFrames = 5;
-  currentFrameX = Math.floor(mouseX * totalFrames);
-  currentFrameY = Math.floor(mouseY * totalFrames);
+  const currentFrameX = Math.floor(mouseX * 5);
+  const currentFrameY = Math.floor(mouseY * 5);
 
-  // Set background position based on the frame
-  const backgroundX = currentFrameX * -200; // -200px to move left
-  const backgroundY = currentFrameY * -200; // -200px to move up
-
-  sprite.style.backgroundPosition = `${backgroundX}px ${backgroundY}px`;
-
-  // Check if we're on the special frame (3, 3)
-  if (currentFrameX === 3 && currentFrameY === 3) {
-    isSpecialFrame = true; // Hovering over the special frame
-    console.log('SPECIAL FRAME HOVER');
-  } else {
-    isSpecialFrame = false; // Not on the special frame
+  // Check if the frame has changed
+  if (currentFrameX !== lastFrameX || currentFrameY !== lastFrameY) {
+    const newMoveSfx = moveSfx.cloneNode(); // Clone the sound effect
+    newMoveSfx.play(); // Play the cloned sound
+    lastFrameX = currentFrameX; // Update the last X frame
+    lastFrameY = currentFrameY; // Update the last Y frame
   }
-}
 
-// Function to handle clicks
-function handleClick() {
-  if (isSpecialFrame) {
-    setTimeout(function () {
-      alert('You clicked the special frame!');
-    }, 500);
+  sprite.style.backgroundPosition = `${currentFrameX * -400}px ${
+    currentFrameY * -400
+  }px`;
+
+  // Check if hovering over the special frame (3, 3)
+  if (currentFrameX === 3 && currentFrameY === 3) {
+    if (!alertTimeout) {
+      alertTimeout = setTimeout(() => {
+        alert('please stop');
+        alertTimeout = null; // Reset after the alert fires
+      }, 2000);
+    }
+  } else {
+    // Cancel the alert if we move away from the special frame
+    if (alertTimeout) {
+      clearTimeout(alertTimeout);
+      alertTimeout = null; // Reset the timeout
+    }
   }
 }
 
 // Wait for DOM to load before attaching event listeners
 document.addEventListener('DOMContentLoaded', () => {
-  const sprite = document.getElementById('sprite');
-
-  // Ensure the sprite element exists
-  if (!sprite) return;
-
-  // Handle mouse movement for desktop
   document.addEventListener('mousemove', (event) => {
     updateSpritePosition(event.clientX, event.clientY);
   });
 
-  // Handle touch movement for mobile
   document.addEventListener('touchmove', (event) => {
-    const touch = event.touches[0];
-    updateSpritePosition(touch.clientX, touch.clientY);
+    updateSpritePosition(event.touches[0].clientX, event.touches[0].clientY);
   });
-
-  // Handle click event on the sprite element
-  sprite.addEventListener('click', handleClick);
 });
