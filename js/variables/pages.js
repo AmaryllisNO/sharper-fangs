@@ -7,7 +7,7 @@ export const pages = [
   {
     name: 'moribund',
     pathname: '/0/1/',
-    music: '/media/sounds/nosun.mp3',
+    music: '/media/sounds/null - the lines between.mp3',
   },
   {
     name: 'moribund',
