@@ -3,7 +3,7 @@ name: Deploy to One.com
 on:
   push:
     branches:
-      - main  # Change to your default branch
+      - main
 
 jobs:
   deploy:
@@ -11,13 +11,13 @@ jobs:
 
     steps:
     - name: Checkout the repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Upload to FTP
-      uses: SamKirkland/FTP-Deploy-Action@4.3.0
+      uses: SamKirkland/FTP-Deploy-Action@4.4.0
       with:
-        ftp-server: sftp://ssh.null00.no  # Replace with your One.com FTP server
-        ftp-username: ${{ secrets.FTP_USERNAME }}
-        ftp-password: ${{ secrets.FTP_PASSWORD }}
+        server: sftp://ssh.null00.no  # Replace with your One.com server
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
         local-dir: ./  # Directory to upload (use './' for the root of the repo)
-        server-dir: /customers/2/c/5/null00.no/httpd.www/sharper-fangs/  # Target directory on the One.com server
+        server-dir: /customers/2/c/5/null00.no/httpd.www/sharper-fangs  # Target directory on the One.com server
