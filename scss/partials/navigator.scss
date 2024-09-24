@@ -4,11 +4,18 @@
     display: flex;
     justify-content: space-between;
     li {
+      font-size: 1.5em;
       &:hover {
         cursor: url('/media/img/cursor-open-55.png'), pointer;
-        transform: 2s;
+        transition: 2s;
         // border: solid 1px red;
         filter: blur(3px) brightness(120);
+        transform: scale(1.25);
+
+        // &::before {
+        //   content: 'aaaaaa';
+        //   position: absolute;
+        // }
       }
     }
   }

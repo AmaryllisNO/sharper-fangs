@@ -3,7 +3,9 @@ import '../events/launch.js';
 let alertTimeout = null; // To store the timeout ID
 let lastFrameX = null; // To store the last X frame
 let lastFrameY = null; // To store the last Y frame
-const moveSfx = new Audio('/media/sounds/HNS1 Zap 02.wav');
+const moveSfx = new Audio('/media/sounds/TASCAM_452.wav');
+const sigilSfx = new Audio('/media/sounds/TASCAM_453.wav');
+const foundSfx = new Audio('/media/sounds/01-UI-womp.mp3');
 
 // Function to update the sprite position
 function updateSpritePosition(x, y) {
@@ -23,9 +25,14 @@ function updateSpritePosition(x, y) {
   // Check if the frame has changed
   if (currentFrameX !== lastFrameX || currentFrameY !== lastFrameY) {
     const newMoveSfx = moveSfx.cloneNode(); // Clone the sound effect
-    newMoveSfx.play(); // Play the cloned sound
+    if (currentFrameX === 3 && currentFrameY === 3) {
+      sigilSfx.play();
+    } else {
+      newMoveSfx.play(); // Play the cloned sound
+    }
     lastFrameX = currentFrameX; // Update the last X frame
     lastFrameY = currentFrameY; // Update the last Y frame
+    // newMoveSfx.volume = 0.5;
   }
 
   sprite.style.backgroundPosition = `${currentFrameX * -400}px ${
@@ -36,9 +43,10 @@ function updateSpritePosition(x, y) {
   if (currentFrameX === 3 && currentFrameY === 3) {
     if (!alertTimeout) {
       alertTimeout = setTimeout(() => {
+        foundSfx.play();
         alert('please stop');
         alertTimeout = null; // Reset after the alert fires
-      }, 2000);
+      }, 1500);
     }
   } else {
     // Cancel the alert if we move away from the special frame

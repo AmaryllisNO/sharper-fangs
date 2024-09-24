@@ -238,10 +238,14 @@ a {
   display: flex;
   justify-content: space-between;
 }
+.navigator ul li {
+  font-size: 1.5em;
+}
 .navigator ul li:hover {
   cursor: url("/media/img/cursor-open-55.png"), pointer;
-  transform: 2s;
+  transition: 2s;
   filter: blur(3px) brightness(120);
+  transform: scale(1.25);
 }
 
 @media (max-width: 600px) {
