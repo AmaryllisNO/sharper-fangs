@@ -14,9 +14,9 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Upload to FTP
-      uses: SamKirkland/FTP-Deploy-Action@4.4.0
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
-        server: sftp://ssh.null00.no  # Replace with your One.com server
+        server: ftp.null00.no  # Replace with your One.com server
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         local-dir: ./  # Directory to upload (use './' for the root of the repo)
