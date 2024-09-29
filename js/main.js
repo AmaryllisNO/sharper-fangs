@@ -1,6 +1,7 @@
 import './renderers/borders.js';
 import './renderers/fxNodes.js';
 import './renderers/testRenderer.js';
+import './renderers/renderNavigation.js';
 import './events/launch.js';
 import { renderSigils } from './renderers/renderSigils.js';
 

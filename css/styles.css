@@ -253,25 +253,47 @@ a {
   justify-content: space-between;
   padding: 0 20em 0 20em;
 }
-.navigator ul li {
+.navigator ul .nav-list-item {
   font-size: 1.5em;
   position: relative;
 }
-.navigator ul li:hover {
+.navigator ul .nav-list-item .navlink:hover {
   cursor: url("/media/img/cursor-open-55.png"), pointer;
   transition: 2s;
   filter: blur(3px) brightness(120);
   transform: scale(1.25);
 }
-.navigator ul li:hover::before {
+.navigator ul .nav-list-item .navlink__moribund::before {
   content: "";
-  filter: blur(0) brightness(1);
   width: 100px;
   height: 100px;
   position: absolute;
   user-select: none;
   z-index: -1;
   background-image: url("/media/img/progression/1.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.navigator ul .nav-list-item .navlink__moribund--disabled {
+  filter: brightness(0.3);
+  user-select: none;
+  pointer-events: none;
+}
+.navigator ul .nav-list-item .navlink__moribund--disabled:hover {
+  cursor: url("/media/img/cursor-55.png"), pointer;
+  transition: 2s;
+  filter: blur(3px) brightness(0.3);
+}
+.navigator ul .nav-list-item .navlink__moribund--disabled::before {
+  content: "";
+  filter: blur(0) brightness(0);
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  user-select: none;
+  z-index: -1;
+  background-image: none;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
