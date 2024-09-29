@@ -1,62 +1,38 @@
-/* Dark overlay */
-html {
-  background: none;
+.tribulation {
+  &__container {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden; /* Ensure no overflow */
+  }
+
+  &__content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__image {
+    height: 1000px;
+    width: auto;
+    pointer-events: none;
+    user-select: none;
+  }
 }
 
-body {
-  background-color: #2e3537;
-  cursor: none;
-  margin: 0;
-}
-
-::root {
-  --pointerX: 50vw;
-  --pointerY: 50vh;
-}
-
-body:before {
-  content: '';
-  position: fixed;
+.dark-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(
-    circle 10vmax at var(--pointerX) var(--pointerY),
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.5) 80%,
-    rgba(0, 0, 0, 0.95) 100%
-  );
-}
 
-// .dark-overlay {
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   width: 100%;
-//   height: 100%;
-//   background: rgb(0, 0, 0);
-//   pointer-events: none; /* So it doesn't block clicks */
-//   mix-blend-mode: difference; /* This creates the reveal effect */
-//   z-index: 666;
-// }
-
-/* Cursor effect */
-// .cursor-reveal {
-//   position: absolute;
-//   width: 300px;
-//   height: 300px;
-//   border-radius: 50%;
-//   background: rgb(139, 139, 139);
-//   filter: blur(50px);
-//   pointer-events: none;
-//   mix-blend-mode: difference;
-//   transition: all 0.1s ease-out;
-// }
-
-.content-container {
-  color: white;
-}
-
-.launch {
-  z-index: 2;
-  position: relative;
+  pointer-events: none; /* Allows mouse events to pass through */
+  background-image: radial-gradient(
+    circle at center,
+    transparent 0%,
+    black 100px,
+    black 100%
+  ); /* Initial state */
 }

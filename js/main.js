@@ -4,13 +4,14 @@ import './renderers/testRenderer.js';
 import './renderers/renderNavigation.js';
 import './events/launch.js';
 import { renderSigils } from './renderers/renderSigils.js';
-
+console.log('hovered over nav');
 // render sigils
 renderSigils();
 
-const navLinks = document.querySelectorAll('#nav__link');
+const navLinks = document.querySelectorAll('#navlink');
 
 const playHoverSFX = (index) => {
+  console.log('hovered over nav');
   const hoverSFX = new Audio(
     `/media/sounds/${String(index).padStart(2, '0')}-UI-womp.mp3`
   );
