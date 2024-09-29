@@ -1,10 +1,15 @@
 .navigator {
+  // overflow-y: hidden;
   ul {
     margin-top: 360px;
     display: flex;
     justify-content: space-between;
+    padding: 0 20em 0 20em;
+
     li {
       font-size: 1.5em;
+      position: relative;
+
       &:hover {
         cursor: url('/media/img/cursor-open-55.png'), pointer;
         transition: 2s;
@@ -12,10 +17,22 @@
         filter: blur(3px) brightness(120);
         transform: scale(1.25);
 
-        // &::before {
-        //   content: 'aaaaaa';
-        //   position: absolute;
-        // }
+        &::before {
+          content: '';
+          filter: blur(0) brightness(1);
+          width: 100px;
+          height: 100px;
+          position: absolute;
+          // bottom: -30px;
+          // left: 0;
+          user-select: none;
+          z-index: -1;
+
+          background-image: url('/media/img/progression/1.png');
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: contain;
+        }
       }
     }
   }
@@ -29,6 +46,7 @@
       flex-direction: column;
       margin-top: 20px;
       justify-content: center;
+      padding: 0;
 
       li {
         margin-top: 10px;

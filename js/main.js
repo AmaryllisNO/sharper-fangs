@@ -2,9 +2,12 @@ import './renderers/borders.js';
 import './renderers/fxNodes.js';
 import './renderers/testRenderer.js';
 import './events/launch.js';
+import { renderSigils } from './renderers/renderSigils.js';
+
+// render sigils
+renderSigils();
 
 const navLinks = document.querySelectorAll('#nav__link');
-console.log('navLinks', navLinks);
 
 const playHoverSFX = (index) => {
   const hoverSFX = new Audio(

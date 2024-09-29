@@ -19,6 +19,8 @@
   transform: translate(-50%, 0%);
   position: absolute;
   z-index: 2;
+  pointer-events: none;
+  user-select: none;
 
   /*   &::after {
     content: url('../media/img/remorser dithered.png');
