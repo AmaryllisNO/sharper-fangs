@@ -1,0 +1,14 @@
+.sigils {
+  &__progression-container {
+    position: absolute;
+    bottom: 0;
+    left: 100px;
+
+    img {
+      width: 75px;
+      height: auto;
+      filter: brightness(1.5);
+      // mix-blend-mode: screen;
+    }
+  }
+}

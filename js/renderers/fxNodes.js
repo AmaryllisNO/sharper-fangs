@@ -1,3 +1,5 @@
+import { sigilsState } from '../variables/sigils.js';
+
 console.log('fx nodes renderer');
 
 const fxContainer = document.getElementById('fx-container');
@@ -5,16 +7,24 @@ const fxContainer = document.getElementById('fx-container');
 const containerWidth = fxContainer.offsetWidth;
 const containerHeight = fxContainer.offsetHeight;
 console.log(containerWidth, containerHeight);
+console.log('sigilState', sigilsState);
 
-const randomCount = Math.floor(Math.random() * 8) + 1;
+const randomCount = 4;
 const randomArray = Array.from({ length: randomCount }, (_, index) => index);
 console.log(randomArray);
 
-randomArray.forEach(() => {
+let updatedSigils =
+  sigilsState.length > 0
+    ? sigilsState.concat(randomArray.slice(sigilsState.length))
+    : randomArray;
+
+updatedSigils.forEach((sigil, index) => {
   const img = document.createElement('img');
   img.classList.add('fx-nodes');
 
-  img.src = './media/img/nodes/ang1.png';
+  img.src = sigil.sigilImage
+    ? `./media/img/progression/${index + 1}.png`
+    : './media/img/nodes/ang1.png';
 
   // Set random position for each img
   let randomLeft = Math.random() * (containerWidth - img.offsetWidth);
@@ -22,6 +32,9 @@ randomArray.forEach(() => {
 
   img.style.left = `${randomLeft}px`;
   img.style.top = `${randomTop}px`;
+  img.style.maxHeight = '300px';
+  img.style.maxWidth = '300px';
+
   img.style.filter = 'brightness(66%)';
   img.style.mixBlendMode = 'color-dodge';
 

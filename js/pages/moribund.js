@@ -1,4 +1,6 @@
 import '../events/launch.js';
+import { renderSigils } from '../renderers/renderSigils.js';
+import { sigilsState } from '../variables/sigils.js';
 
 let alertTimeout = null; // To store the timeout ID
 let lastFrameX = null; // To store the last X frame
@@ -40,13 +42,23 @@ function updateSpritePosition(x, y) {
     currentFrameY * -200
   }px`;
 
-  // Check if hovering over the special frame (3, 3)
+  // Check if hovering over the special frame (6, 6)
   if (currentFrameX === 6 && currentFrameY === 6) {
     if (!alertTimeout) {
       alertTimeout = setTimeout(() => {
         foundSfx.play();
         alert('please stop');
-        alertTimeout = null; // Reset after the alert fires
+        console.log('...before pushing sigilState, ', sigilsState);
+        sigilsState.push({
+          name: 'moribund',
+          sigilImage: '/media/img/progression/1.png',
+        });
+        console.log('...after pushing sigilState');
+        console.log('sigilstate: ', sigilsState);
+        localStorage.setItem('sigils', JSON.stringify(sigilsState));
+
+        alertTimeout = null; // Reset after the alert fires'
+        window.location.href = '/';
       }, 1500);
     }
   } else {
