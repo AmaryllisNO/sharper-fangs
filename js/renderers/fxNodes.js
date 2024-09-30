@@ -1,4 +1,4 @@
-import { sigilsState } from '../variables/sigils.js';
+import { sigilsState } from '/js/variables/sigils.js';
 
 console.log('fx nodes renderer');
 
