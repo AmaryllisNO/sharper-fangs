@@ -4,7 +4,6 @@ import './renderers/testRenderer.js';
 import './renderers/renderNavigation.js';
 import './events/launch.js';
 import { renderSigils } from './renderers/renderSigils.js';
-console.log('hovered over nav');
 // render sigils
 renderSigils();
 
