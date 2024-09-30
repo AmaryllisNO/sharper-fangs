@@ -1,7 +1,6 @@
-import '../events/launch.js';
-import { currentBgMusic } from '../events/launch.js';
+import '/js/events/launch.js';
+import { currentBgMusic } from '/js/events/launch.js';
 
-const container = document.querySelector('#tribulation-container');
 const overlay = document.querySelector('.dark-overlay');
 
 let alertTimeout = null; // To store the timeout ID

@@ -1,6 +1,5 @@
 import '/js/events/launch.js';
-import { renderSigils } from '../renderers/renderSigils.js';
-import { sigilsState } from '../variables/sigils.js';
+import { sigilsState } from '/js/variables/sigils.js';
 
 let alertTimeout = null; // To store the timeout ID
 let lastFrameX = null; // To store the last X frame
