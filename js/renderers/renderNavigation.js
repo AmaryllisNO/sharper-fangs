@@ -1,7 +1,7 @@
+console.log('navigatin render');
 import { sigilsState } from '/js/variables/sigils.js';
 
 const navigator = document.querySelector('.navigator');
-console.log('navigatin render');
 
 navigator.innerHTML = `
 <ul>
