@@ -21,3 +21,4 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./
           server-dir: /customers/2/c/5/null00.no/httpd.www/sharper-fangs/
+          port: 21
