@@ -1,4 +1,4 @@
-import { pages } from '../variables/pages.js';
+import { pages } from '/js/variables/pages.js';
 
 const launch = document.getElementById('launch');
 const filteredURL = window.location.pathname;
