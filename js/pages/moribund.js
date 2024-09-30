@@ -1,4 +1,4 @@
-import '../events/launch.js';
+import '/js/events/launch.js';
 import { renderSigils } from '../renderers/renderSigils.js';
 import { sigilsState } from '../variables/sigils.js';
 
