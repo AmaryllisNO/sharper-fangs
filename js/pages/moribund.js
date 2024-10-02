@@ -9,7 +9,6 @@ const sigilSfx = new Audio('/media/sounds/TASCAM_453.wav');
 const foundSfx = new Audio('/media/sounds/01-UI-womp.mp3');
 
 const html = document.querySelector('html');
-
 html.style.cursor = 'none';
 
 if (sigilsState) {
