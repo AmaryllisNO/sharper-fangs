@@ -1,4 +1,12 @@
 .tribulation {
+  &__text {
+    // z-index: 10000;
+    color: white;
+    font-size: 2em;
+    margin: 0 aut;
+    display: flex;
+    justify-content: center;
+  }
   &__container {
     position: relative;
     height: 100vh;

@@ -8,6 +8,19 @@ const moveSfx = new Audio('/media/sounds/TASCAM_452.wav');
 const sigilSfx = new Audio('/media/sounds/TASCAM_453.wav');
 const foundSfx = new Audio('/media/sounds/01-UI-womp.mp3');
 
+const html = document.querySelector('html');
+
+html.style.cursor = 'none';
+
+if (sigilsState) {
+  sigilsState.forEach((sigil) => {
+    if (sigil.name === 'moribund') {
+      window.location.href = '/';
+    }
+  });
+  // console.log('sigilsState: ', sigilsState[0].name);
+}
+
 // Function to update the sprite position
 function updateSpritePosition(x, y) {
   const sprite = document.getElementById('sprite');
