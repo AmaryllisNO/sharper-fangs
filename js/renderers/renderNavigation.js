@@ -18,11 +18,11 @@ navigator.innerHTML = `
             }">Moribund</a>
           </li>
           <li class="nav-list-item">
-          <a href="0/1" id="navlink" class="navlink navlink__tribulation ${
+          <a href="0/2" id="navlink" class="navlink navlink__tribulation ${
             sigilsState[1]?.name === 'tribulation'
               ? 'navlink__tribulation--disabled'
               : ''
-          }">Moribund</a>
+          }">Tribulation</a>
           </li>
           <li class="nav-list-item">
             <a href="5" id="navlink" class="navlink" >Hymn</a>

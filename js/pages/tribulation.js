@@ -5,6 +5,7 @@ import { currentBgMusic } from '/js/events/launch.js';
 if (sigilsState) {
   sigilsState.forEach((sigil) => {
     if (sigil.name === 'tribulation') {
+      console.log('tribulation found');
       window.location.href = '/';
     }
   });
