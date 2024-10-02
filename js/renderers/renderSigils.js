@@ -15,7 +15,6 @@ export const renderSigils = () => {
     const sigilItem = document.createElement('li');
     sigilItem.innerHTML = `
             <img src="${sigil.sigilImage}"></img>
-            <p>moribund</p>
             `;
     sigilsList.appendChild(sigilItem);
   });
