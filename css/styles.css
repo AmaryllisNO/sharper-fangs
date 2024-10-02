@@ -1,21 +1,21 @@
 @font-face {
-  font-family: "Bloodletter Regular";
-  src: url("../fonts/Bloodletter-Regular.ttf") format("truetype");
+  font-family: 'Bloodletter Regular';
+  src: url('../fonts/Bloodletter-Regular.ttf') format('truetype');
 }
 @font-face {
-  font-family: "Carta Marina";
-  src: url("../fonts/674.woff2") format("truetype");
+  font-family: 'Carta Marina';
+  src: url('../fonts/674.woff2') format('truetype');
 }
 html {
   margin: 0;
   padding: 0;
   /* height: 100%; */
-  cursor: url("../media/img/cursor-55.png"), auto;
+  cursor: url('../media/img/cursor-55.png'), auto;
   height: 100lvh;
   width: 100lvw;
   overflow: hidden;
   background-color: #323232;
-  background-image: url("../media/img/bg dithered.jpg");
+  background-image: url('../media/img/bg dithered.jpg');
   background-position: center;
   background-repeat: repeat;
 }
@@ -33,7 +33,7 @@ a {
 }
 
 .content {
-  font-family: "Carta Marina";
+  font-family: 'Carta Marina';
   color: white;
   margin: 200px;
   z-index: 10;
@@ -42,7 +42,7 @@ a {
   padding-right: 20px; /* Adds some padding for better scroll visibility */
 }
 .content__paragraph {
-  font-family: "Carta Marina";
+  font-family: 'Carta Marina';
   font-size: 18px;
   max-width: 1000px;
   text-align: center;
@@ -52,7 +52,7 @@ a {
 
 @media (max-width: 600px) {
   .content {
-    font-family: "Carta Marina";
+    font-family: 'Carta Marina';
     color: white;
     margin: 0;
     padding: 20px;
@@ -61,7 +61,7 @@ a {
     max-height: 80vh; /* Restrict height to viewport height */
   }
   .content__paragraph {
-    font-family: "Carta Marina";
+    font-family: 'Carta Marina';
     font-size: 18px;
   }
 }
@@ -99,14 +99,19 @@ a {
   width: 100%;
   height: 100%;
   pointer-events: none; /* Allows mouse events to pass through */
-  background-image: radial-gradient(circle at center, transparent 0%, black 100px, black 100%); /* Initial state */
+  background-image: radial-gradient(
+    circle at center,
+    transparent 0%,
+    black 100px,
+    black 100%
+  ); /* Initial state */
 }
 
 .borders {
   /* border: 20px solid red; */
 }
 .borders__horizontal--top {
-  background-image: url("../media/img/horizontal bevel.png");
+  background-image: url('../media/img/horizontal bevel.png');
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -115,7 +120,7 @@ a {
   background-size: cover;
 }
 .borders__horizontal--bottom {
-  background-image: url("../media/img/horizontal bevel.png");
+  background-image: url('../media/img/horizontal bevel.png');
   transform: rotate(180deg);
   position: absolute;
   top: 0;
@@ -126,7 +131,7 @@ a {
 }
 .borders__vertical--left {
   position: absolute;
-  background-image: url("../media/img/left bevel.png");
+  background-image: url('../media/img/left bevel.png');
   left: 0;
   top: 0;
   height: 100%;
@@ -134,14 +139,14 @@ a {
 }
 .borders__vertical--right {
   position: absolute;
-  background-image: url("../media/img/right bevel.png");
+  background-image: url('../media/img/right bevel.png');
   right: 0;
   top: 0;
   height: 100%;
   width: 34px;
 }
 .borders__corners div {
-  background-image: url("../media/img/corner bevel.png");
+  background-image: url('../media/img/corner bevel.png');
   background-repeat: no-repeat;
   background-size: contain;
   position: absolute;
@@ -191,7 +196,7 @@ a {
 .sprite {
   width: 400px;
   height: 400px;
-  background-image: url("/media/img/spritesheet bevel.png");
+  background-image: url('/media/img/spritesheet bevel.png');
   background-size: 2000px 2000px; /* Size of the entire sprite sheet */
   background-repeat: no-repeat;
   position: absolute;
@@ -295,19 +300,19 @@ a {
   position: relative;
 }
 .navigator ul .nav-list-item .navlink:hover {
-  cursor: url("/media/img/cursor-open-55.png"), pointer;
+  cursor: url('/media/img/cursor-open-55.png'), pointer;
   transition: 2s;
   filter: blur(3px) brightness(120);
   transform: scale(1.25);
 }
 .navigator ul .nav-list-item .navlink__moribund:hover::before {
-  content: "";
+  content: '';
   width: 100px;
   height: 100px;
   position: absolute;
   user-select: none;
   z-index: -1;
-  background-image: url("/media/img/progression/1.png");
+  background-image: url('/media/img/progression/1.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -318,12 +323,12 @@ a {
   pointer-events: none;
 }
 .navigator ul .nav-list-item .navlink__moribund--disabled:hover {
-  cursor: url("/media/img/cursor-55.png"), pointer;
+  cursor: url('/media/img/cursor-55.png'), pointer;
   transition: 2s;
   filter: blur(3px) brightness(0.3);
 }
 .navigator ul .nav-list-item .navlink__moribund--disabled:hover::before {
-  content: "";
+  content: '';
   filter: blur(0) brightness(0);
   width: 100px;
   height: 100px;
