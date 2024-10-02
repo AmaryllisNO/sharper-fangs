@@ -41,6 +41,7 @@
           &--disabled {
             filter: brightness(0.3);
             user-select: none;
+            pointer-events: none;
 
             &:hover {
               cursor: url('/media/img/cursor-55.png'), pointer;
@@ -48,22 +49,22 @@
               // border: solid 1px red;
               filter: blur(3px) brightness(0.3);
               // transform: scale(1.25);
-            }
 
-            &::before {
-              content: '';
-              filter: blur(0) brightness(0);
-              width: 100px;
-              height: 100px;
-              position: absolute;
-              // bottom: -30px;
-              // left: 0;
-              user-select: none;
-              z-index: -1;
+              &::before {
+                content: '';
+                filter: blur(0) brightness(0);
+                width: 100px;
+                height: 100px;
+                position: absolute;
+                // bottom: -30px;
+                // left: 0;
+                z-index: -1;
 
-              background-position: center;
-              background-repeat: no-repeat;
-              background-size: contain;
+                background-image: none;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
+              }
             }
           }
         }

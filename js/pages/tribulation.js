@@ -1,9 +1,13 @@
+import { sigilsState } from '../variables/sigils.js';
 import '/js/events/launch.js';
 import { currentBgMusic } from '/js/events/launch.js';
 
 const overlay = document.querySelector('.dark-overlay');
 
 let alertTimeout = null; // To store the timeout ID
+console.log('html element: ', document.querySelector('html'));
+document.querySelector('html').style.backgroundImage = 'none';
+// html.style.cursor = 'none';
 
 const updatePosition = (x, y) => {
   const vw = window.innerWidth;
@@ -12,17 +16,17 @@ const updatePosition = (x, y) => {
   const mouseX = x / vw;
   const mouseY = y / vh;
 
-  const currentFrameX = Math.floor(mouseX * 24);
-  const currentFrameY = Math.floor(mouseY * 24);
+  const currentFrameX = Math.floor(mouseX * 12);
+  const currentFrameY = Math.floor(mouseY * 12);
   console.log(currentFrameX, currentFrameY);
 
   // Check if hovering over the special frame (6, 6)
-  if (currentFrameX === 11 && currentFrameY === 14) {
+  if (currentFrameX === 6 && currentFrameY === 7) {
     if (!alertTimeout) {
       alertTimeout = setTimeout(() => {
         currentBgMusic.pause();
         alert('please dont look');
-        new Audio('/media/sounds/ictnm.mp3').play();
+        // new Audio('/media/sounds/ictnm.mp3').play();
         console.log('currentBgMusic: ' + currentBgMusic);
 
         console.log('...before pushing sigilState, ', sigilsState);
@@ -56,6 +60,5 @@ document.addEventListener('mousemove', function (e) {
   // Update the background-image property to move the gradient center to the cursor location
   overlay.style.backgroundImage = `radial-gradient(circle at ${x}px ${y}px, 
     rgba(0, 0, 0, 0) 0%, 
-    rgba(0, 0, 0, 0.5) 1%, 
-    rgba(0, 0, 0, 1) 5%)`;
+    rgba(0, 0, 0, 1) 10%)`;
 });
