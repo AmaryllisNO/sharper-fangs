@@ -1,4 +1,4 @@
-import { sigilsState } from '../variables/sigils.js';
+import { sigilsState } from '/js/variables/sigils.js';
 import '/js/events/launch.js';
 import { currentBgMusic } from '/js/events/launch.js';
 
@@ -36,9 +36,9 @@ const updatePosition = (x, y) => {
   const currentFrameX = Math.floor(mouseX * 12);
   const currentFrameY = Math.floor(mouseY * 12);
 
-  if (placementLogger) {
-    placementLogger.innerHTML = `<p style="color: white; position: absolute; z-index: 99999;">Current position: (${currentFrameX}, ${currentFrameY}). Is device mobile? ${isDeviceMobile}</p>`;
-  }
+  // if (placementLogger) {
+  //   placementLogger.innerHTML = `<p style="color: white; position: absolute; z-index: 99999;">Current position: (${currentFrameX}, ${currentFrameY}). Is device mobile? ${isDeviceMobile}</p>`;
+  // }
 
   const shouldTriggerAlert =
     (currentFrameX === 6 && currentFrameY === 7) ||
@@ -66,6 +66,7 @@ function triggerAlert() {
       console.log('currentBgMusic: ' + currentBgMusic);
       console.log('...before pushing sigilState, ', sigilsState);
       sigilsState.push({
+        id: 1,
         name: 'tribulation',
         sigilImage: '/media/img/progression/2.png',
       });

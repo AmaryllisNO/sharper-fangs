@@ -1,3 +1,4 @@
+import { sigilsState } from '/js/variables/sigils.js';
 import { pages } from '/js/variables/pages.js';
 
 const launch = document.getElementById('launch');
@@ -12,7 +13,12 @@ let bgMusic = null;
 if (currentPage && currentPage.music) {
   // Initialize the audio if music exists for this page
   bgMusic = new Audio(currentPage.music);
-  bgMusic.volume = 0.6;
+  console.log();
+  if (sigilsState.length >= 2) {
+    console.log('slow down audio');
+    bgMusic.playbackRate = 0.8;
+  }
+  bgMusic.volume = 0.7;
 }
 
 export const currentBgMusic = bgMusic;

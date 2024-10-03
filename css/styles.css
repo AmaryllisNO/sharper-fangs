@@ -47,7 +47,7 @@ a {
   max-width: 1000px;
   text-align: center;
   margin: 0 auto; /* Ensure the paragraph centers horizontally */
-  margin-top: 40px;
+  margin-top: 75px;
 }
 
 @media (max-width: 600px) {
@@ -285,27 +285,50 @@ a {
     height: 250px;
   }
 }
-.navigator ul {
+.nav ul {
   margin-top: 360px;
   display: flex;
   justify-content: space-between;
   padding: 0 20em 0 20em;
 }
-.navigator ul .nav-list-item {
+.nav ul .nav-list-item {
   font-size: 1.5em;
   position: relative;
+  min-width: 140px;
+  display: flex;
+  justify-content: center;
 }
-.navigator ul .nav-list-item .navlink:hover {
+.nav ul .nav-list-item::before {
+  content: "";
+  display: flex;
+  user-select: none;
+  z-index: -1;
+  width: 170.6666666667px;
+  height: 38.3333333333px;
+  position: absolute;
+  top: 30px;
+  background-image: url("/media/img/underline bevel.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.nav ul .nav-list-item .navlink {
+  display: flex;
+  text-align: right;
+}
+.nav ul .nav-list-item .navlink:hover {
   cursor: url("/media/img/cursor-open-55.png"), pointer;
   transition: 2s;
   filter: blur(3px) brightness(120);
   transform: scale(1.25);
 }
-.navigator ul .nav-list-item .navlink__moribund:hover::before {
+.nav ul .nav-list-item .navlink__moribund:hover::before {
   content: "";
-  width: 100px;
-  height: 100px;
+  width: 75px;
+  height: 75px;
   position: absolute;
+  bottom: -30px;
+  right: 75px;
   user-select: none;
   z-index: -1;
   background-image: url("/media/img/progression/1.png");
@@ -313,17 +336,54 @@ a {
   background-repeat: no-repeat;
   background-size: contain;
 }
-.navigator ul .nav-list-item .navlink__moribund--disabled {
+.nav ul .nav-list-item .navlink__moribund--disabled {
   filter: brightness(0.3);
   user-select: none;
   pointer-events: none;
 }
-.navigator ul .nav-list-item .navlink__moribund--disabled:hover {
+.nav ul .nav-list-item .navlink__moribund--disabled:hover {
   cursor: url("/media/img/cursor-55.png"), pointer;
   transition: 2s;
   filter: blur(3px) brightness(0.3);
 }
-.navigator ul .nav-list-item .navlink__moribund--disabled:hover::before {
+.nav ul .nav-list-item .navlink__moribund--disabled:hover::before {
+  content: "";
+  filter: blur(0) brightness(0);
+  width: 75px;
+  height: 75px;
+  position: absolute;
+  bottom: -30px;
+  right: 75px;
+  background-image: none;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.nav ul .nav-list-item .navlink__tribulation:hover::before {
+  content: "";
+  width: 75px;
+  height: 75px;
+  position: absolute;
+  bottom: -30px;
+  right: 75px;
+  user-select: none;
+  z-index: -1;
+  background-image: url("/media/img/progression/2.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.nav ul .nav-list-item .navlink__tribulation--disabled {
+  filter: brightness(0.3);
+  user-select: none;
+  pointer-events: none;
+}
+.nav ul .nav-list-item .navlink__tribulation--disabled:hover {
+  cursor: url("/media/img/cursor-55.png"), pointer;
+  transition: 2s;
+  filter: blur(3px) brightness(0.3);
+}
+.nav ul .nav-list-item .navlink__tribulation--disabled:hover::before {
   content: "";
   filter: blur(0) brightness(0);
   width: 100px;
@@ -335,29 +395,31 @@ a {
   background-repeat: no-repeat;
   background-size: contain;
 }
-.navigator ul .nav-list-item .navlink__tribulation:hover::before {
+.nav ul .nav-list-item .navlink__hymn:hover::before {
   content: "";
-  width: 100px;
-  height: 100px;
+  width: 75px;
+  height: 75px;
   position: absolute;
+  bottom: -30px;
+  right: 40px;
   user-select: none;
   z-index: -1;
-  background-image: url("/media/img/progression/2.png");
+  background-image: url("/media/img/progression/3.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
-.navigator ul .nav-list-item .navlink__tribulation--disabled {
+.nav ul .nav-list-item .navlink__hymn--disabled {
   filter: brightness(0.3);
   user-select: none;
   pointer-events: none;
 }
-.navigator ul .nav-list-item .navlink__tribulation--disabled:hover {
+.nav ul .nav-list-item .navlink__hymn--disabled:hover {
   cursor: url("/media/img/cursor-55.png"), pointer;
   transition: 2s;
   filter: blur(3px) brightness(0.3);
 }
-.navigator ul .nav-list-item .navlink__tribulation--disabled:hover::before {
+.nav ul .nav-list-item .navlink__hymn--disabled:hover::before {
   content: "";
   filter: blur(0) brightness(0);
   width: 100px;

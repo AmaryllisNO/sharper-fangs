@@ -1,17 +1,12 @@
 import { sigilsState } from '/js/variables/sigils.js';
 
-console.log('fx nodes renderer');
-
 const fxContainer = document.getElementById('fx-container');
 
 const containerWidth = fxContainer.offsetWidth;
 const containerHeight = fxContainer.offsetHeight;
-console.log(containerWidth, containerHeight);
-console.log('sigilState', sigilsState);
 
 const randomCount = 4;
 const randomArray = Array.from({ length: randomCount }, (_, index) => index);
-console.log(randomArray);
 
 let updatedSigils =
   sigilsState.length > 0
