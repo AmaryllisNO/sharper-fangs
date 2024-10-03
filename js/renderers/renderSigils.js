@@ -7,7 +7,7 @@ export const renderSigils = () => {
   container.id = 'sigils-container';
   container.classList.add('sigils__progression-container');
   document.body.appendChild(container);
-  console.log('...rendering sigils', 'sigilsState: ', sigilsState);
+  // console.log('...rendering sigils', 'sigilsState: ', sigilsState);
 
   const sigilsList = document.createElement('ul');
 

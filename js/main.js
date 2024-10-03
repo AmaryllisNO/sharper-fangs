@@ -4,24 +4,45 @@ import './renderers/testRenderer.js';
 import './renderers/renderNavigation.js';
 import './events/launch.js';
 import { renderSigils } from './renderers/renderSigils.js';
+import { sigilsState } from './variables/sigils.js';
 // render sigils
-renderSigils();
 
-const navLinks = document.querySelectorAll('#navlink');
-
-const playHoverSFX = (index) => {
-  console.log('hovered over nav');
-  const hoverSFX = new Audio(
-    `/media/sounds/${String(index).padStart(2, '0')}-UI-womp.mp3`
+document.addEventListener('DOMContentLoaded', () => {
+  renderSigils();
+  console.log(
+    'sigilssTate length',
+    sigilsState.length,
+    'more or equal two? ',
+    sigilsState.length >= 2
   );
-  console.log('hoverSFX', hoverSFX);
-  // hoverSFX.volume = 1.2;
-  hoverSFX.play();
-};
 
-navLinks.forEach((link, index) => {
-  const hoverSfxIndex = index + 1; // Start from 1 for the first link
-  link.addEventListener('mouseenter', () => playHoverSFX(hoverSfxIndex)); // Use function reference
+  const navLinks = document.querySelectorAll('#navlink');
+  console.log('navLinks', navLinks);
+  const remorserContainer = document.querySelector('#remorse-container');
+  console.log('remorserContainer', remorserContainer);
+
+  remorserContainer.innerHTML = `<img class='remorser' src=${
+    sigilsState.length >= 2
+      ? `/media/img/remorser_transform.png?time=${new Date().getTime()}`
+      : `/media/img/remorser_dithered.png?time=${new Date().getTime()}`
+  } alt='remorser' />`;
+
+  console.log('remorserContainer innerHTML:', remorserContainer.innerHTML);
+
+  const playHoverSFX = (index) => {
+    console.log('hovered over nav');
+    const hoverSFX = new Audio(
+      `/media/sounds/${String(index).padStart(2, '0')}-UI-womp.mp3`
+    );
+    console.log('hoverSFX', hoverSFX);
+    // hoverSFX.volume = 1.2;
+    hoverSFX.play();
+  };
+
+  navLinks.forEach((link, index) => {
+    const hoverSfxIndex = index + 1; // Start from 1 for the first link
+    link.addEventListener('mouseenter', () => playHoverSFX(hoverSfxIndex)); // Use function reference
+  });
 });
 
 document.addEventListener('DOMContentLoaded', function () {

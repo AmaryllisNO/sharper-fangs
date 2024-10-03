@@ -7,3 +7,6 @@ if (localStorage.getItem('sigils')) {
 
 // If no sigils in localStorage, default to an empty array
 export let sigilsState = currentLocalSigils || [];
+
+// Sort the sigilsState array based on 'id'
+sigilsState.sort((a, b) => a.id - b.id);

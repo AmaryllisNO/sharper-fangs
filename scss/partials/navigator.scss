@@ -1,4 +1,6 @@
-.navigator {
+@use 'sass:math';
+
+.nav {
   // overflow-y: hidden;
   ul {
     margin-top: 360px;
@@ -9,8 +11,29 @@
     .nav-list-item {
       font-size: 1.5em;
       position: relative;
+      min-width: 140px;
+      display: flex;
+      justify-content: center;
+
+      &::before {
+        content: '';
+        display: flex;
+        user-select: none;
+        z-index: -1;
+        width: $underline-bevel-width;
+        height: $underline-bevel-height;
+        position: absolute;
+        top: 30px;
+        background-image: url('/media/img/underline\ bevel.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
 
       .navlink {
+        display: flex;
+        text-align: right;
+
         &:hover {
           cursor: url('/media/img/cursor-open-55.png'), pointer;
           transition: 2s;
@@ -24,14 +47,62 @@
             &::before {
               content: '';
               // filter: blur(0) brightness(0);
-              width: 100px;
-              height: 100px;
+              width: 75px;
+              height: 75px;
               position: absolute;
-              // bottom: -30px;
-              // left: 0;
+              bottom: -30px;
+              right: 75px;
               user-select: none;
               z-index: -1;
               background-image: url('/media/img/progression/1.png');
+              background-position: center;
+              background-repeat: no-repeat;
+              background-size: contain;
+            }
+          }
+
+          &--disabled {
+            filter: brightness(0.3);
+            user-select: none;
+            pointer-events: none;
+
+            &:hover {
+              cursor: url('/media/img/cursor-55.png'), pointer;
+              transition: 2s;
+              // border: solid 1px red;
+              filter: blur(3px) brightness(0.3);
+              // transform: scale(1.25);
+
+              &::before {
+                content: '';
+                filter: blur(0) brightness(0);
+                width: 75px;
+                height: 75px;
+                position: absolute;
+                bottom: -30px;
+                right: 75px;
+
+                background-image: none;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
+              }
+            }
+          }
+        }
+
+        &__tribulation {
+          &:hover {
+            &::before {
+              content: '';
+              width: 75px;
+              height: 75px;
+              position: absolute;
+              bottom: -30px;
+              right: 75px;
+              user-select: none;
+              z-index: -1;
+              background-image: url('/media/img/progression/2.png');
               background-position: center;
               background-repeat: no-repeat;
               background-size: contain;
@@ -69,19 +140,18 @@
           }
         }
 
-        &__tribulation {
+        &__hymn {
           &:hover {
             &::before {
               content: '';
-              // filter: blur(0) brightness(0);
-              width: 100px;
-              height: 100px;
+              width: 75px;
+              height: 75px;
               position: absolute;
-              // bottom: -30px;
-              // left: 0;
+              bottom: -30px;
+              right: 40px;
               user-select: none;
               z-index: -1;
-              background-image: url('/media/img/progression/2.png');
+              background-image: url('/media/img/progression/3.png');
               background-position: center;
               background-repeat: no-repeat;
               background-size: contain;

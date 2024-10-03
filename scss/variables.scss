@@ -1,3 +1,8 @@
+@use 'sass:math';
+
 $angel-xy-dimensions-mobile: 250px;
 
 $angel-xy-dimensions: 400px;
+
+$underline-bevel-width: math.div(512px, 3);
+$underline-bevel-height: math.div(115px, 3);

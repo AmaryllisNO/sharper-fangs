@@ -61,6 +61,7 @@ function updateSpritePosition(x, y) {
         alert('please stop');
         console.log('...before pushing sigilState, ', sigilsState);
         sigilsState.push({
+          id: 0,
           name: 'moribund',
           sigilImage: '/media/img/progression/1.png',
         });
