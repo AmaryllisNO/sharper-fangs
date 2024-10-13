@@ -4,16 +4,25 @@ import { sigilsState } from '/js/variables/sigils.js';
 document.addEventListener('DOMContentLoaded', () => {
   const navigatorList = document.querySelector('.nav__list');
 
+  let navPages = pages;
+
   let areFirstPuzzlesSolved = false;
   if (sigilsState.length > 3) {
     areFirstPuzzlesSolved = true;
   }
 
+  console.log('areFirstPuzzlesSolved', areFirstPuzzlesSolved);
+
   let navListHTML = '';
 
-  const beginning = pages.shift();
+  let beginning = pages.shift();
+  // beginning = beginning.slice(0, 3);
+  // console.log('beginning', beginning);
+  console.log('pages', pages);
+  navPages = navPages.slice(0, 3);
+  console.log('navPages', navPages);
 
-  pages.forEach((page, i) => {
+  navPages.forEach((page, i) => {
     // console.log('page id', page.id, sigilsState[page.id].id);
 
     const sigil = sigilsState[page.id] ?? {};
@@ -31,6 +40,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (navigatorList) {
     navigatorList.innerHTML = navListHTML;
+  }
+
+  if (sigilsState.length >= 3) {
+    navigatorList.innerHTML += `   <li class="nav-list-item">
+           <a href="0/4" id="navlink" class="navlink navlink__truth ${
+             !areFirstPuzzlesSolved ? '' : 'navlink__truth--disabled'
+           }">Truth</a>
+          </li>`;
   }
 });
 

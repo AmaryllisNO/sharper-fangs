@@ -21,6 +21,7 @@ export const pages = [
     id: 2,
     name: 'hymn',
     pathname: '/0/3/',
+    music: '/media/sounds/hymn to the void.ogg',
   },
   {
     id: 3,

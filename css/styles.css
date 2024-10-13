@@ -103,7 +103,49 @@ a {
   background-image: radial-gradient(circle at center, transparent 0%, black 100px, black 100%); /* Initial state */
 }
 
+.hymn {
+  overflow: scroll;
+}
+.hymn__sigil {
+  position: absolute;
+  z-index: 10;
+  top: 1200px;
+  left: 250px;
+}
+.hymn__sigil:hover {
+  mix-blend-mode: color-burn;
+  filter: hue-rotate(60deg);
+}
+.hymn__bg {
+  background-image: url("../media/img/bg dithered.jpg");
+  background-position: center;
+  background-repeat: repeat;
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  z-index: 0;
+}
+.hymn__scripture {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.hymn__scripture-image {
+  margin: 0 auto;
+  width: auto;
+  height: auto;
+}
+
 .borders {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
   /* border: 20px solid red; */
 }
 .borders__horizontal--top {
@@ -420,6 +462,42 @@ a {
   filter: blur(3px) brightness(0.3);
 }
 .nav ul .nav-list-item .navlink__hymn--disabled:hover::before {
+  content: "";
+  filter: blur(0) brightness(0);
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  z-index: -1;
+  background-image: none;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.nav ul .nav-list-item .navlink__truth:hover::before {
+  content: "";
+  width: 75px;
+  height: 75px;
+  position: absolute;
+  bottom: -30px;
+  right: 40px;
+  user-select: none;
+  z-index: -1;
+  background-image: url("/media/img/progression/4.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.nav ul .nav-list-item .navlink__truth--disabled {
+  filter: brightness(0.3);
+  user-select: none;
+  pointer-events: none;
+}
+.nav ul .nav-list-item .navlink__truth--disabled:hover {
+  cursor: url("/media/img/cursor-55.png"), pointer;
+  transition: 2s;
+  filter: blur(3px) brightness(0.3);
+}
+.nav ul .nav-list-item .navlink__truth--disabled:hover::before {
   content: "";
   filter: blur(0) brightness(0);
   width: 100px;

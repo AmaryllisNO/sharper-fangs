@@ -15,8 +15,8 @@ if (currentPage && currentPage.music) {
   bgMusic = new Audio(currentPage.music);
   console.log();
   if (sigilsState.length >= 2) {
-    console.log('slow down audio');
-    bgMusic.playbackRate = 0.8;
+    // console.log('slow down audio');
+    // bgMusic.playbackRate = 0.8;
   }
   bgMusic.volume = 0.7;
 }
