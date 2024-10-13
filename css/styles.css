@@ -515,10 +515,16 @@ a {
     margin-top: 150px;
   }
   .navigator ul {
+    background-color: red;
     flex-direction: column;
     margin-top: 20px;
     justify-content: center;
     padding: 0;
+  }
+  .navigator ul .nav-list-item {
+    margin: 10px 0;
+    text-align: center;
+    border: 1px solid red;
   }
   .navigator ul li {
     margin-top: 10px;

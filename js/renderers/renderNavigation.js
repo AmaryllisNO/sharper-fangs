@@ -49,6 +49,15 @@ document.addEventListener('DOMContentLoaded', () => {
            }">Truth</a>
           </li>`;
   }
+
+  if (window.innerWidth <= 600) {
+    const navigatorList = document.querySelector('.nav ul');
+    navigatorList.style.flexDirection = 'column';
+    navigatorList.style.padding = '0';
+
+    const navigatorListItems = document.querySelectorAll('.nav-list-item');
+    navigatorListItems.style.paddingTop = '100px';
+  }
 });
 
 {

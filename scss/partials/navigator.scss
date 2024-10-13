@@ -247,10 +247,17 @@
     margin-top: 150px;
 
     ul {
+      background-color: red;
       flex-direction: column;
       margin-top: 20px;
       justify-content: center;
       padding: 0;
+
+      .nav-list-item {
+        margin: 10px 0; // Adds some spacing between items
+        text-align: center; // Centers the text on mobile
+        border: 1px solid red;
+      }
 
       li {
         margin-top: 10px;
